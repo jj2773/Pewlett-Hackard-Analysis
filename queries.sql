@@ -99,7 +99,7 @@ LEFT JOIN dept_emp as de
 ON ri.emp_no = de.emp_no
 WHERE de.to_date = ('9999-01-01');
 
-
+-- count is 33,118
 -- now summarize the new retirement list by department and put into a new table current_emp_by_dept
 -- Employee count by department number
 SELECT COUNT(ce.emp_no), de.dept_no
@@ -127,9 +127,14 @@ INTO emp_info
 FROM employees AS e
 INNER JOIN salaries as s
 ON (e.emp_no=s.emp_no)
+INNER JOIN dept_emp as de
+ON (e.emp_no=de.emp_no)
 WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
-AND (e.hire_date BETWEEN '1985-01-01' AND '1988-12-31');
+AND (e.hire_date BETWEEN '1985-01-01' AND '1988-12-31')
 AND (de.to_date='9999-01-01')
+
+-- count of retired people is 33,118
+
 -- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -- emp_info
 --     emp_no PK int fk >- Employees.emp_no
