@@ -153,6 +153,7 @@ SELECT COUNT(title), title FROM (
     AND (t.to_date='9999-01-01')
 ) AS Q1
 GROUP BY title
+ORDER BY COUNT(title) DESC
 
 -- Deliverable 2
 -- mentorship-eligibility table that holds the current employees who were born between January 1, 1965 and December 31, 1965.
@@ -192,7 +193,7 @@ ORDER BY emp_no, to_date DESC;
 -- ## A query is written and executed to create a Mentorship Eligibility table for current employees 
 -- ## who were born between January 1, 1965 and December 31, 1965. (25 pt)
 
-SELECT e.emp_no, e.last_name, e.first_name, e.birth_date, de.from_date, de.to_date, t.title
+SELECT e.emp_no, e.first_name, e.last_name, e.birth_date, de.from_date, de.to_date, t.title
 INTO mentor_eligible
 FROM
 	(SELECT DISTINCT ON (emp_no) emp_no, from_date, to_date 
@@ -205,6 +206,8 @@ LEFT JOIN latest_titles as t
 ON (e.emp_no=t.emp_no)
 WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
 ORDER BY emp_no
+
+
 -- ##############################################################################################################
 
 -- 10 Export the Mentorship Eligibility table as mentorship_eligibilty.csv and save it to your Data folder 
@@ -217,6 +220,11 @@ ORDER BY emp_no
 -- see below path 
 --'\Pewlett-Hackard-Analysis\Data\mentorship_eligibility.csv' csv header;
 
+-- If a mentorship program is to train employeesAdditional question is how many mentores per title.
 
+SELECT COUNT(title), title
+FROM mentor_eligible
+GROUP BY title
+ORDER BY COUNT(title) DESC
 
 

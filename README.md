@@ -23,7 +23,7 @@ Retirement titles was found by creating a query with the criteria of birth dates
 * There were 1,550 people eligible for the mentorship program versus the 90,398 retiring.
 
 ## Summary
-In summary it appears that our analysis did not consider if the person was still employed and how many years of service.  These two questions can be answered by adding this information to the query for titles retiring for a more accurate count of 33,118. 
+In summary it appears that our analysis for title counts did not consider if the person was still employed and how many years of service.  These two questions can be answered by adding this information to the query for titles retiring for a more accurate count of 33,118. 
 
 ![alt text](https://github.com/jj2773/PEWLETT-HACKARD-ANALYSIS/blob/main/RETIRING_TITLES_QUERY-2.PNG)
 
